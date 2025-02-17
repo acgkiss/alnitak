@@ -194,18 +194,18 @@ func getTranscodingTarget(videoInfo *dto.TranscodingInfo) []TranscodingTarget {
 	switch maxRresolution {
 	case 1080:
 		if global.Config.Transcoding.Generate1080p60 && videoInfo.FPS60 != "" {
-			targets = append(targets, TranscodingTarget{Resolution: "1920x1080", BitrateRate: "6000k", FPS: videoInfo.FPS60, FpsName: "60"})
+			targets = append(targets, TranscodingTarget{Resolution: "1920x1080", BitrateRate: "8000k", FPS: videoInfo.FPS60, FpsName: "60"})
 		}
-		targets = append(targets, TranscodingTarget{Resolution: "1920x1080", BitrateRate: "3000k", FPS: videoInfo.FPS30, FpsName: "30"})
+		targets = append(targets, TranscodingTarget{Resolution: "1920x1080", BitrateRate: "6000k", FPS: videoInfo.FPS30, FpsName: "30"})
 		fallthrough
 	case 720:
-		targets = append(targets, TranscodingTarget{Resolution: "1280x720", BitrateRate: "2000k", FPS: videoInfo.FPS30, FpsName: "30"})
+		targets = append(targets, TranscodingTarget{Resolution: "1280x720", BitrateRate: "3000k", FPS: videoInfo.FPS30, FpsName: "30"})
 		fallthrough
 	case 480:
-		targets = append(targets, TranscodingTarget{Resolution: "854x480", BitrateRate: "900k", FPS: videoInfo.FPS30, FpsName: "30"})
+		targets = append(targets, TranscodingTarget{Resolution: "854x480", BitrateRate: "1500k", FPS: videoInfo.FPS30, FpsName: "30"})
 		fallthrough
 	case 360:
-		targets = append(targets, TranscodingTarget{Resolution: "640x360", BitrateRate: "500k", FPS: videoInfo.FPS30, FpsName: "30"})
+		targets = append(targets, TranscodingTarget{Resolution: "640x360", BitrateRate: "1000k", FPS: videoInfo.FPS30, FpsName: "30"})
 	}
 
 	return targets
